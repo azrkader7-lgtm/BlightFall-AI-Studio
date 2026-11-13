@@ -16,7 +16,7 @@ export const onRequestPost = async ({ request, env }: PagesContext) => {
     if (!prompt || prompt.length > 12000) {
       return Response.json({ error: 'الطلب فارغ أو أطول من الحد المسموح (12000 حرف).' }, { status: 400 })
     }
-    const model = env.GEMINI_MODEL || 'gemini-2.5-flash'
+    const model = env.GEMINI_MODEL || 'gemini-3.8-flash'
     const upstream = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
       method: 'POST',
       headers: {
